@@ -81,7 +81,7 @@ DATABASES = {
         'ENGINE': 'sql_server.pyodbc',
         'NAME': 'AdventureWorksDW2017',
         'USER': 'sa',
-        'PASSWORD': 'Alaska2017',
+        'PASSWORD': '<YourStrong@Passw0rd>',
         'HOST': 'db1.internal.prod.example.com',
         'PORT': '1433',
         'OPTIONS': {
