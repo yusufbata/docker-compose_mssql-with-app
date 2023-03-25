@@ -16,6 +16,8 @@ services:
       mynetwork:
         aliases:
           - db1.internal.prod.example.com
+    volumes:
+     - mssql-data:/var/opt/mssql
 
   web:
     build:
@@ -40,3 +42,8 @@ services:
 networks:
   mynetwork:
     driver: bridge
+
+volumes:
+  mssql-data:
+    # actually this is the default
+    driver: local
