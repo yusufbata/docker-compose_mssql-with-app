@@ -13,6 +13,11 @@ Prof of concept project with Microsoft SQL Server and Django Framework setup on 
 7. run `docker-compose run web python3 manage.py migrate` to apply migrations on default database. In this case it will be AdventureWorksDW2017.
 8. run `docker-compose run web python3 manage.py createsuperuser` to create admin account
 
+## keycloak
+1. Run: `sudo docker-compose build mykeycloak`
+2. Run: `docker-compose up -d mykeycloak`
+3. Browse to: `localhost:8443` and login using `admin` and `change_me`
+
 ## To run project:
  
 1. run `docker-compose up web`

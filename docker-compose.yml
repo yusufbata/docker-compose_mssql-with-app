@@ -20,25 +20,46 @@ services:
     volumes:
      - mssql-data:/var/opt/mssql
 
-  web:
+  mykeycloak:
+    container_name: mykeycloak
     build:
-      context: ./docker/web/
+      context: ./docker/keycloak/
       dockerfile: Dockerfile
-    user: root
-    depends_on:
-      - db
-    volumes:
-      - .:/code/
+    command: start --optimized --hostname=localhost
     ports:
-      - "8080:8080"
+      - "8443:8443"
     environment:
-      DJANGO_SETTINGS_MODULE: SqlServerOnDocker.settings
-    command: python3 manage.py runserver 0.0.0.0:8080
-    restart: unless-stopped
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: change_me
+      # - KC_DB: postgres
+      # - KC_DB_URL: <DBURL>
+      # - KC_DB_USERNAME: <DBUSERNAME>
+      # - KC_DB_PASSWORD: <DBPASSWORD>
+      # - KC_HOSTNAME: localhost
     networks:
       mynetwork:
         aliases:
-          - web1.internal.prod.example.com
+          - keycloak1.internal.prod.example.com
+
+  # web:
+  #   build:
+  #     context: ./docker/web/
+  #     dockerfile: Dockerfile
+  #   user: root
+  #   depends_on:
+  #     - db
+  #   volumes:
+  #     - .:/code/
+  #   ports:
+  #     - "8080:8080"
+  #   environment:
+  #     DJANGO_SETTINGS_MODULE: SqlServerOnDocker.settings
+  #   command: python3 manage.py runserver 0.0.0.0:8080
+  #   restart: unless-stopped
+  #   networks:
+  #     mynetwork:
+  #       aliases:
+  #         - web1.internal.prod.example.com
 
 networks:
   mynetwork:
