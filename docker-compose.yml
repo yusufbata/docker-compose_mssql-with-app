@@ -13,10 +13,10 @@ services:
       ACCEPT_EULA: "Y"
     healthcheck:
       test: sqlcmd -S db1.internal.prod.example.com -U SA -P '<YourStrong@Passw0rd>' -Q 'select distinct 1 from AdventureWorksDW2017.dbo.DimDate'
-    networks:
-      mynetwork:
-        aliases:
-          - db1.internal.prod.example.com
+    # networks:
+    #   mynetwork:
+    #     aliases:
+    #       - db1.internal.prod.example.com
     volumes:
      - mssql-data:/var/opt/mssql
 
@@ -40,10 +40,10 @@ services:
       # - KC_HOSTNAME: localhost    
     depends_on:
       - db
-    networks:
-      mynetwork:
-        aliases:
-          - keycloak1.internal.prod.example.com
+    # networks:
+    #   mynetwork:
+    #     aliases:
+    #       - keycloak1.internal.prod.example.com
 
   # Example of service with image only
   myredis:
@@ -69,9 +69,9 @@ services:
   #       aliases:
   #         - web1.internal.prod.example.com
 
-networks:
-  mynetwork:
-    driver: bridge
+# networks:
+#   mynetwork:
+#     driver: bridge
 
 volumes:
   mssql-data:
