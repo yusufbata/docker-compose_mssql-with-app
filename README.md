@@ -7,10 +7,11 @@ Proof of concept project with Microsoft SQL Server and Django Framework setup on
 
 ## General (see https://docs.docker.com/compose/gettingstarted/)
 1. start up the application by running `docker compose up`
-1. If you want to run your services in the background, you can pass the -d flag (for “detached” mode) to `docker compose up -d` and use `docker compose ps` to see what is currently running.
-2. If you started Compose with docker compose up -d, stop your services once you’ve finished with them: `docker compose stop`
-1. The docker compose run command allows you to run one-off commands for your services. For example, to see what environment variables are available to the mykeycloak service: `docker compose run myredis env`
-1. Use `docker compose down --volumes` to bring everything down, removing the containers entirely, with the down command. Pass --volumes to also remove the data volume used by the containers.
+2. If you want to run your services in the background, you can pass the -d flag (for “detached” mode) to `docker compose up -d` and use `docker compose ps` to see what is currently running.
+3. If you started Compose with docker compose up -d, stop your services once you’ve finished with them: `docker compose stop`
+4. The docker compose run command allows you to run one-off commands for your services. For example, to see what environment variables are available to the mykeycloak service: `docker compose run myredis env`
+5. Use `docker compose down --volumes` to bring everything down, removing the containers entirely, with the down command. Pass --volumes to also remove the data volume used by the containers.
+6. Compose uses a project name to isolate environments from each other. The default project name is the basename of the project directory. You can set a custom project name by using the -p command line option or the COMPOSE_PROJECT_NAME environment variable.
 
 ## To start development:
 1. install [docker](https://docs.docker.com/#/components) and [docker-compose](https://docs.docker.com/compose/install/)
