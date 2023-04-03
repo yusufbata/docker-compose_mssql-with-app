@@ -26,6 +26,7 @@ services:
     # build:
     #   context: ./docker/keycloak/
     #   dockerfile: Dockerfile
+    #   target: production
     command: start --optimized --hostname=localhost
     ports:
       - "8443:8443"
@@ -36,8 +37,9 @@ services:
       # - KC_DB_URL: <DBURL>
       # - KC_DB_USERNAME: <DBUSERNAME>
       # - KC_DB_PASSWORD: <DBPASSWORD>
-      # - KC_HOSTNAME: localhost
-    
+      # - KC_HOSTNAME: localhost    
+    depends_on:
+      - db
     networks:
       mynetwork:
         aliases:
@@ -74,4 +76,4 @@ networks:
 volumes:
   mssql-data:
     # actually this is the default
-    driver: local
+    # driver: local
