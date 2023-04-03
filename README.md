@@ -3,7 +3,7 @@ Proof of concept project with Microsoft SQL Server and Django Framework setup on
 
 ## config notes:
 1. By default, .env file is used for configuration
-2. To use config for other environments, add the following option to your commands: `--env-file ./docker/config/.env.live`
+2. To use config for other environments, add the following option to your commands: `--env-file ./docker/config/.env.live`. For example: `docker compose --env-file ./docker/config/.env.live up mykeycloak`
 
 ## To start development:
 1. install [docker](https://docs.docker.com/#/components) and [docker-compose](https://docs.docker.com/compose/install/)
