@@ -37,6 +37,7 @@ services:
       # - KC_DB_USERNAME: <DBUSERNAME>
       # - KC_DB_PASSWORD: <DBPASSWORD>
       # - KC_HOSTNAME: localhost
+    
     networks:
       mynetwork:
         aliases:

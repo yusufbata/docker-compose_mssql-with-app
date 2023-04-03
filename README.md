@@ -5,6 +5,13 @@ Proof of concept project with Microsoft SQL Server and Django Framework setup on
 1. By default, .env file is used for configuration
 2. To use config for other environments, add the following option to your commands: `--env-file ./docker/config/.env.live`. For example: `docker compose --env-file ./docker/config/.env.live up mykeycloak`
 
+## General (see https://docs.docker.com/compose/gettingstarted/)
+1. start up the application by running `docker compose up`
+1. If you want to run your services in the background, you can pass the -d flag (for “detached” mode) to `docker compose up -d` and use `docker compose ps` to see what is currently running.
+2. If you started Compose with docker compose up -d, stop your services once you’ve finished with them: `docker compose stop`
+1. The docker compose run command allows you to run one-off commands for your services. For example, to see what environment variables are available to the mykeycloak service: `docker compose run myredis env`
+1. Use `docker compose down --volumes` to bring everything down, removing the containers entirely, with the down command. Pass --volumes to also remove the data volume used by the containers.
+
 ## To start development:
 1. install [docker](https://docs.docker.com/#/components) and [docker-compose](https://docs.docker.com/compose/install/)
 2. clone this repository
@@ -31,3 +38,9 @@ Proof of concept project with Microsoft SQL Server and Django Framework setup on
 ## Access to sql server
 1. sudo docker-compose run db sqlcmd -S db1.internal.prod.example.com -U SA -P '<YourStrong@Passw0rd>' -Q 'select 1 from AdventureWorksDW2017'
 2. sudo docker exec -it sqlserverondocker_db_1 bash
+
+
+## Scaling a service
+1. To run multiple instances of myredis, use `docker-compose up --scale myredis=3 myredis` at startup, or
+2. At runtime using: `docker-compose scale myredis=3`
+2. To configure port range for a scaled service, use `ports: - "6379-6385:6379"`
