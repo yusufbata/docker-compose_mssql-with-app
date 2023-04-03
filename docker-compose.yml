@@ -29,8 +29,8 @@ services:
     ports:
       - "8443:8443"
     environment:
-      KEYCLOAK_ADMIN: admin
-      KEYCLOAK_ADMIN_PASSWORD: change_me
+      KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN}
+      KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD}
       # - KC_DB: postgres
       # - KC_DB_URL: <DBURL>
       # - KC_DB_USERNAME: <DBUSERNAME>
