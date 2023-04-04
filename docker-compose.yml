@@ -2,6 +2,7 @@ version: '3.9'
 services:
 
   db:
+    container_name: mydb
     build:
       context: ./docker/db/
       dockerfile: Dockerfile
@@ -17,6 +18,8 @@ services:
     #   mynetwork:
     #     aliases:
     #       - db1.internal.prod.example.com
+    # Docker restart policy: no, on-failure, always, unless-stopped
+    restart: on-failure
     volumes:
      - mssql-data:/var/opt/mssql
 

@@ -12,6 +12,10 @@ Proof of concept project with Microsoft SQL Server and Django Framework setup on
 4. The docker compose run command allows you to run one-off commands for your services. For example, to see what environment variables are available to the mykeycloak service: `docker compose run myredis env`
 5. Use `docker compose down --volumes` to bring everything down, removing the containers entirely, with the down command. Pass --volumes to also remove the data volume used by the containers.
 6. Compose uses a project name to isolate environments from each other. The default project name is the basename of the project directory. You can set a custom project name by using the -p command line option or the COMPOSE_PROJECT_NAME environment variable.
+7. To restart a container without rebuilding it, use `docker compose restart mykeycloak`
+8. To restart a container with rebuilding it, use `docker compose up -d --build mykeycloak` -> Test to see if this works?
+9. To see effective docker compose config, use `docker compose config`
+
 
 ## To start development:
 1. install [docker](https://docs.docker.com/#/components) and [docker-compose](https://docs.docker.com/compose/install/)
